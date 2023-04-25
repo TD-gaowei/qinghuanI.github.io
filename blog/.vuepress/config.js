@@ -7,14 +7,14 @@ const nav = [
     text: "标签",
     link: "/tag/",
   },
-  {
-    text: "读书",
-    link: "/read/",
-  },
-  {
-    text: "随笔",
-    link: "/notes/",
-  },
+  // {
+  //   text: "读书",
+  //   link: "/read/",
+  // },
+  // {
+  //   text: "随笔",
+  //   link: "/notes/",
+  // },
   {
     text: "关于我",
     link: "/about/",
@@ -29,10 +29,6 @@ module.exports = {
   themeConfig: {
     // Please keep looking down to see the available options.
     nav,
-    sidebar: {
-      "/read/": [""],
-      "/notes": [""],
-    },
     dateFormat: "YYYY-MM-DD",
     footer: {
       contact: [
@@ -54,12 +50,12 @@ module.exports = {
     globalPagination: {
       prevText: "上一页", // Text for previous links.
       nextText: "下一页", // Text for next links.
-      lengthPerPage: "10", // Maximum number of posts per page.
+      lengthPerPage: "5", // Maximum number of posts per page.
       layout: "Pagination",
     },
     feed: {
       canonical_base: "https://qinghuanI.github.io/my-blog",
-      rss: true,
+      rss: false,
       atom: false,
       json: false,
     },
