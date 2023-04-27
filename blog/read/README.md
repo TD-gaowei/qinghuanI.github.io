@@ -1,1 +1,0 @@
-<ReadArticleList :list="$site.pages"/>

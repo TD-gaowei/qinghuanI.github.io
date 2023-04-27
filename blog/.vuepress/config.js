@@ -7,14 +7,6 @@ const nav = [
     text: "标签",
     link: "/tag/",
   },
-  // {
-  //   text: "读书",
-  //   link: "/read/",
-  // },
-  // {
-  //   text: "随笔",
-  //   link: "/notes/",
-  // },
   {
     text: "关于我",
     link: "/about/",
