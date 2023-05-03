@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>执行上下文与 this 指向 | 学习概念而不是语言</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.jpeg">
+    <meta name="description" content="
+
+执行上下文又称为执行环境，每当 JS 引擎解析可执行代码时，就会进入一个执行环境。
+
+本篇博客将在浏览器环境下讲述执行上下文。在浏览器环境中，执行上下文分为三种:
+
+全局执行上下文
+   默认的、最基础的执行上下文。不在任何函数中的代码都位于全局执行上下文中。
+
+函数执行上下文
+   每个函数都拥有自己的执行上下文，但是只有在函数被调用的时候才会被创建。一个 ...">
+    
+    <link rel="preload" href="/assets/css/0.styles.7777dd8e.css" as="style"><link rel="preload" href="/assets/js/app.5c1ec460.js" as="script"><link rel="preload" href="/assets/js/8.0d09876a.js" as="script"><link rel="preload" href="/assets/js/3.0003beae.js" as="script"><link rel="preload" href="/assets/js/19.0029605e.js" as="script"><link rel="prefetch" href="/assets/js/10.175c548e.js"><link rel="prefetch" href="/assets/js/11.0049b5aa.js"><link rel="prefetch" href="/assets/js/12.ef0e1441.js"><link rel="prefetch" href="/assets/js/13.401ef6f6.js"><link rel="prefetch" href="/assets/js/14.47046aa0.js"><link rel="prefetch" href="/assets/js/15.c57098a3.js"><link rel="prefetch" href="/assets/js/16.49850c50.js"><link rel="prefetch" href="/assets/js/17.75af9246.js"><link rel="prefetch" href="/assets/js/18.36980c19.js"><link rel="prefetch" href="/assets/js/20.a4bda0c0.js"><link rel="prefetch" href="/assets/js/21.93e4574a.js"><link rel="prefetch" href="/assets/js/22.76895c20.js"><link rel="prefetch" href="/assets/js/23.50083854.js"><link rel="prefetch" href="/assets/js/24.c493f762.js"><link rel="prefetch" href="/assets/js/25.53470e49.js"><link rel="prefetch" href="/assets/js/26.82767cce.js"><link rel="prefetch" href="/assets/js/27.ef4882a2.js"><link rel="prefetch" href="/assets/js/28.e8080dce.js"><link rel="prefetch" href="/assets/js/29.1fa03d7a.js"><link rel="prefetch" href="/assets/js/30.5aac3a84.js"><link rel="prefetch" href="/assets/js/31.6988747a.js"><link rel="prefetch" href="/assets/js/32.b47aa45b.js"><link rel="prefetch" href="/assets/js/33.48cb0ec9.js"><link rel="prefetch" href="/assets/js/34.703ccfaf.js"><link rel="prefetch" href="/assets/js/35.b6b8cf56.js"><link rel="prefetch" href="/assets/js/36.92574574.js"><link rel="prefetch" href="/assets/js/37.90961a37.js"><link rel="prefetch" href="/assets/js/38.2d02863a.js"><link rel="prefetch" href="/assets/js/39.019e31c4.js"><link rel="prefetch" href="/assets/js/4.cfff3174.js"><link rel="prefetch" href="/assets/js/40.c1b1a7ac.js"><link rel="prefetch" href="/assets/js/5.f3da8cb0.js"><link rel="prefetch" href="/assets/js/6.b80ac16f.js"><link rel="prefetch" href="/assets/js/7.3a44df2f.js"><link rel="prefetch" href="/assets/js/9.8039887e.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.a77183a3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7777dd8e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">学习概念而不是语言 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/" class="nav-link">首页</a></li><li class="nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="nav-item"><a href="/about/" class="nav-link">关于我</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">学习概念而不是语言 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/" class="nav-link">首页</a></li><li class="mobile-nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="mobile-nav-item"><a href="/about/" class="nav-link">关于我</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        执行上下文与 this 指向
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">   in wuhan</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2020-04-02T00:00:00.000Z">
+      2020-04-02
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/tag/Javascript" data-v-42ccfcd5><span data-v-42ccfcd5>Javascript</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h2 id="执行上下文"><a href="#执行上下文" class="header-anchor">#</a> 执行上下文</h2> <p><strong>执行上下文又称为执行环境，每当 JS 引擎解析可执行代码时，就会进入一个执行环境</strong>。</p> <p>本篇博客将在浏览器环境下讲述执行上下文。在浏览器环境中，执行上下文分为三种:</p> <ol><li><p><strong>全局执行上下文</strong>
+默认的、最基础的执行上下文。不在任何函数中的代码都位于全局执行上下文中。</p></li> <li><p><strong>函数执行上下文</strong>
+每个函数都拥有自己的执行上下文，但是只有在函数被调用的时候才会被创建。一个程序中可以存在任意数量的函数执行上下文。每当一个新的执行上下文被创建，它都会按照特定的顺序执行一系列步骤。</p></li> <li><p><strong>Eval 函数执行上下文</strong>
+这种上下文一般不考虑</p></li></ol> <h2 id="执行上下文是什么"><a href="#执行上下文是什么" class="header-anchor">#</a> 执行上下文是什么？</h2> <p><strong>可以把执行上下文看成一个对象 {} 来理解，有三个重要属性</strong>,</p> <ol><li>变量对象(Variable Object, 简称 VO)，存入声明的变量,也是一个对象 {},里面存有</li></ol> <ul><li>函数的所有形参 (如果是函数执行上下文)</li> <li>函数声明</li> <li>变量声明</li></ul> <ol start="2"><li><p>作用域链(<strong>[[scope]]</strong>)，扩连作用域链</p> <p>作用域链是由当前环境与上层环境的一系列变量对象组成，它保证了对执行环境有权访问的所有变量和函数的有序访问</p> <p>上文的作用域中讲到过函数的作用域在函数定义的时候就决定了，因为函数有一个内部属性 [[scope]]，当函数创建
+的时候，就会保存所有父变量对象到其中，当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，
+就会从自己的 [[scope]] 中保存的父级(词法层面上的父级)执行上下文的变量对象中查找，一直找到全局上下文的变量对
+象，也就是全局对象。这样由多个执行上下文的变量对象构成的链表就叫做作用域链。</p></li> <li><p>确定 this 的指向 见 <a href="#jump">this 到底是什么</a></p></li></ol> <h2 id="执行上下文的生命周期"><a href="#执行上下文的生命周期" class="header-anchor">#</a> 执行上下文的生命周期</h2> <p>创建阶段(生成变量对象, 建立作用域链, 确定 this 指向) =&gt; 执行阶段(变量赋值,函数引用、执行其它的代码) =&gt; 回收阶段</p> <h3 id="js-引擎如何管理执行上下文"><a href="#js-引擎如何管理执行上下文" class="header-anchor">#</a> js 引擎如何管理执行上下文</h3> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- index.html --&gt;</span>
+
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>浏览器环境下的执行上下文<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+      <span class="token comment">// 全局执行上下文</span>
+      <span class="token keyword">var</span> author <span class="token operator">=</span> <span class="token string">&quot;qinghuanI&quot;</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> author <span class="token operator">=</span> <span class="token string">&quot;qinghuanI&quot;</span><span class="token punctuation">;</span>
+        <span class="token comment">// 函数执行上下文</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">// eval 函数创建新执行上下文</span>
+      <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">&quot;var author = 'qinghuanI'&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>javascript 引擎创建了执行上下文栈(Execution context stack, ECS) 来管理执行上下文。以 <code>index.html</code> 为例，</p> <ol><li>当 JS 引擎读取 script 标签时，会创建一个全局执行上下文，并将其推入当前的执行上下文栈中。创建变量对象，里面有未初始化的 author 变量，作用域链此时没有，确定 this 指向 window 对象。</li> <li>引擎继续往下执行，执行 foo() 时，会为 foo 函数创建一个新的执行上下文并将其推到当前执行栈的顶端。此时会创建变量对象，建立作用域链，确定 this 指向 window 对象。</li></ol> <p>用伪代码解释上述过程:</p> <div class="language-js extra-class"><pre class="language-js"><code>
+<span class="token comment">// 解析过程从</span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token constant">AO</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token operator">:</span> window <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>scope<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 变为</span>
+
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token constant">AO</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token keyword">this</span><span class="token operator">:</span> window<span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>scope<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token constant">AO</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token operator">:</span> window<span class="token punctuation">,</span>  <span class="token comment">// 函数执行时动态绑定</span>
+      <span class="token literal-property property">arguments</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 为类数组</span>
+      <span class="token literal-property property">author</span><span class="token operator">:</span> <span class="token string">&quot;qinghuanI&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>scope<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token constant">AO</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token operator">:</span> window<span class="token punctuation">,</span>
+        <span class="token literal-property property">arguments</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 为类数组</span>
+        <span class="token literal-property property">author</span><span class="token operator">:</span> <span class="token string">&quot;qinghuanI&quot;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token constant">GO</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token operator">:</span> window<span class="token punctuation">,</span>
+        <span class="token literal-property property">window</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">author</span><span class="token operator">:</span> <span class="token string">&quot;qinghuanI&quot;</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p>这种标识符(变量)的解析过程，与函数的生命周期有关。函数的生命周期可以分为创建和激活（调用时）两个阶段。在函数创建时，函数的内部存在一个 [[scope]] 属性(内部属性)，[[scope]]是所有变量对象的层级链。[[scope]] 属性在函数创建时被存储，永远不变，直到函数被销毁。函数可以不被调用，但该属性一直存在。</p> <div class="language- extra-class"><pre><code>作用域链的长度与函数嵌套有关，比如在递归场景下。
+this 指向与函数被调用时的所属对象有关
+变量对象与函数体内声明变量的关键字有关(var 与 const let 有区别)
+</code></pre></div><h2 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h2> <blockquote><p>当函数可以记住并访问所在的词法作用域时，即时函数是在当前词法作用域之外执行，这时就产生了闭包</p></blockquote> <p>用 <code>index.html</code> 为例讲解闭包</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- index.html --&gt;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> author <span class="token operator">=</span> <span class="token string">&quot;qinghuanI&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// window</span>
+      <span class="token keyword">return</span> author<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> bar<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">var</span> fn <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// fn === function bar() {/* code */}</span>
+  <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>调用 foo 函数，返回值是一个函数，由上文提到的执行上下文可知，每调用一个函数，就会创建一个执行上下文，如果声明了一个函数，没有调用，但函数本身依旧有一个作用域，作用域链由词法环境决定，只要调用了 fn 函数，即为依旧与 foo 的函数作用域构成作用域链，依旧可以访问 author 变量。</p> <p>什么情况下会产生闭包?</p> <ul><li>为创建内部作用域而调用了一个包装函数;</li> <li>包装函数的返回值必须至少包括一个对内部函数的引用</li></ul> <h2 id="this-到底是什么"><a href="#this-到底是什么" class="header-anchor">#</a> <a id="jump">this 到底是什么</a></h2> <hr> <blockquote><p>this 提供了一种更优雅的方式来隐式&quot;传递&quot;上下文对象</p></blockquote> <p>this 是在运行时进行绑定的，并不是在编写时绑定的，它的指向取决于函数调用时的各种
+条件，确定 this 的指向和函数声明的位置没有任何关系，只取决于函数的调用方式</p> <p><strong>我把 this 指向分为两种情况</strong>:</p> <ol><li>能找到调用该函数的对象，即 this 指向该对象 (new 调用一个函数， this 指向实例)</li> <li>不能找到调用该函数的对象，即 this 执行 window 这个兜底对象</li></ol> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- index.html --&gt;</span>
+// ...
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// window</span>
+
+  <span class="token keyword">const</span> blog <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;再谈 this 指向和执行上下文&quot;</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">author</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// blog</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  blog<span class="token punctuation">.</span><span class="token function">author</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// window</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="es6-中的箭头函数"><a href="#es6-中的箭头函数" class="header-anchor">#</a> ES6 中的箭头函数</h2> <ul><li>箭头函数没有自己的 this,只能继承上一个执行上下文的 this 指向;</li> <li>call/apply/bind 无法改变箭头函数中 this 的指向;</li> <li>箭头函数不能作为构造函数使用，没有 arguments，prototype 属性;</li> <li>箭头函数不能作 Generator 函数，不能使用 yield 关键字。</li></ul> <h2 id="call、apply-和-bind"><a href="#call、apply-和-bind" class="header-anchor">#</a> call、apply 和 bind</h2> <p>call、apply 和 bind 为了改变某个函数运行时的上下文而存在，换句话说，就是为了改变函数体内部 this 指向。</p> <div class="language-html extra-class"><pre class="language-html"><code>// index.html //...
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">const</span> blog <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">&quot;再谈 this 指向和执行上下文&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token function-variable function">getTitle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;title:&quot;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// '再谈 this 指向和执行上下文'</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;arguments:&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>arguments<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [1, 2]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token function">getTitle</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>blog<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+
+//...
+</code></pre></div></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#执行上下文" title="执行上下文">执行上下文</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#执行上下文是什么" title="执行上下文是什么？">执行上下文是什么？</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#执行上下文的生命周期" title="执行上下文的生命周期">执行上下文的生命周期</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#js-引擎如何管理执行上下文" title="js 引擎如何管理执行上下文">js 引擎如何管理执行上下文</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#闭包" title="闭包">闭包</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#this-到底是什么" title=""></a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#es6-中的箭头函数" title="ES6 中的箭头函数">ES6 中的箭头函数</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#call、apply-和-bind" title="call、apply 和 bind">call、apply 和 bind</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/qinghuanI" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>Copyright© 2019-present qinghuanI</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c1ec460.js" defer></script><script src="/assets/js/8.0d09876a.js" defer></script><script src="/assets/js/3.0003beae.js" defer></script><script src="/assets/js/19.0029605e.js" defer></script>
+  </body>
+</html>

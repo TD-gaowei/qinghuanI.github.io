@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>解读 classnames 源码 | 学习概念而不是语言</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.jpeg">
+    <meta name="description" content="
+
+classnames 库通过 JavaScript 动态控制标签的类名。常用于 react 项目里，用来控制组件的类名。
+它有如下的优点:
+
+避免在组件里写行内样式
+配置性高，比如通过对象动态配置类名
+
+使用方式
+
+我推荐下列使用方式。
+
+// 这是最常见的用法
+classNames(&quot;foo&quot;, &quot;bar&quot;); // =&gt; &#39;foo bar&#39;
+// ...">
+    
+    <link rel="preload" href="/assets/css/0.styles.7777dd8e.css" as="style"><link rel="preload" href="/assets/js/app.5c1ec460.js" as="script"><link rel="preload" href="/assets/js/8.0d09876a.js" as="script"><link rel="preload" href="/assets/js/3.0003beae.js" as="script"><link rel="preload" href="/assets/js/18.36980c19.js" as="script"><link rel="prefetch" href="/assets/js/10.175c548e.js"><link rel="prefetch" href="/assets/js/11.0049b5aa.js"><link rel="prefetch" href="/assets/js/12.ef0e1441.js"><link rel="prefetch" href="/assets/js/13.401ef6f6.js"><link rel="prefetch" href="/assets/js/14.47046aa0.js"><link rel="prefetch" href="/assets/js/15.c57098a3.js"><link rel="prefetch" href="/assets/js/16.49850c50.js"><link rel="prefetch" href="/assets/js/17.75af9246.js"><link rel="prefetch" href="/assets/js/19.0029605e.js"><link rel="prefetch" href="/assets/js/20.a4bda0c0.js"><link rel="prefetch" href="/assets/js/21.93e4574a.js"><link rel="prefetch" href="/assets/js/22.76895c20.js"><link rel="prefetch" href="/assets/js/23.50083854.js"><link rel="prefetch" href="/assets/js/24.c493f762.js"><link rel="prefetch" href="/assets/js/25.53470e49.js"><link rel="prefetch" href="/assets/js/26.82767cce.js"><link rel="prefetch" href="/assets/js/27.ef4882a2.js"><link rel="prefetch" href="/assets/js/28.e8080dce.js"><link rel="prefetch" href="/assets/js/29.1fa03d7a.js"><link rel="prefetch" href="/assets/js/30.5aac3a84.js"><link rel="prefetch" href="/assets/js/31.6988747a.js"><link rel="prefetch" href="/assets/js/32.b47aa45b.js"><link rel="prefetch" href="/assets/js/33.48cb0ec9.js"><link rel="prefetch" href="/assets/js/34.703ccfaf.js"><link rel="prefetch" href="/assets/js/35.b6b8cf56.js"><link rel="prefetch" href="/assets/js/36.92574574.js"><link rel="prefetch" href="/assets/js/37.90961a37.js"><link rel="prefetch" href="/assets/js/38.2d02863a.js"><link rel="prefetch" href="/assets/js/39.019e31c4.js"><link rel="prefetch" href="/assets/js/4.cfff3174.js"><link rel="prefetch" href="/assets/js/40.c1b1a7ac.js"><link rel="prefetch" href="/assets/js/5.f3da8cb0.js"><link rel="prefetch" href="/assets/js/6.b80ac16f.js"><link rel="prefetch" href="/assets/js/7.3a44df2f.js"><link rel="prefetch" href="/assets/js/9.8039887e.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.a77183a3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7777dd8e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">学习概念而不是语言 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/" class="nav-link">首页</a></li><li class="nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="nav-item"><a href="/about/" class="nav-link">关于我</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">学习概念而不是语言 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/" class="nav-link">首页</a></li><li class="mobile-nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="mobile-nav-item"><a href="/about/" class="nav-link">关于我</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        解读 classnames 源码
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">   in wuhan</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2019-10-11T00:00:00.000Z">
+      2019-10-11
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/tag/classnames" data-v-42ccfcd5><span data-v-42ccfcd5>classnames</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h2 id="介绍"><a href="#介绍" class="header-anchor">#</a> 介绍</h2> <p>classnames 库通过 JavaScript 动态控制标签的类名。常用于 react 项目里，用来控制组件的类名。
+它有如下的优点:</p> <ul><li><strong>避免在组件里写行内样式</strong></li> <li><strong>配置性高，比如通过对象动态配置类名</strong></li></ul> <h2 id="使用方式"><a href="#使用方式" class="header-anchor">#</a> 使用方式</h2> <p>我推荐下列使用方式。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 这是最常见的用法</span>
+<span class="token function">classNames</span><span class="token punctuation">(</span><span class="token string">&quot;foo&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;bar&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// =&gt; 'foo bar'</span>
+<span class="token comment">// 通过变量控制每个类名。visible 为 false,则结果为 'foo', 为 true,则结果为 'foo bar'</span>
+<span class="token function">classNames</span><span class="token punctuation">(</span><span class="token string">&quot;foo&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">bar</span><span class="token operator">:</span> visible <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// =&gt; 'foo bar'</span>
+
+<span class="token comment">// 比如在 Tag 组件里，控制 Tag 的状态的类名可以写成下列形式，但 type 必须有默认值,比如默认 default</span>
+<span class="token function">classNames</span><span class="token punctuation">(</span><span class="token string">&quot;tag&quot;</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">is-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>type<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// =&gt; 'tag is-default'</span>
+<span class="token comment">// type 无默认值, 不推荐</span>
+<span class="token function">classNames</span><span class="token punctuation">(</span><span class="token string">&quot;tag&quot;</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">is-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>type<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// =&gt; 'tag is-undefined'</span>
+
+<span class="token comment">// 为 false 的值会被过滤掉</span>
+<span class="token function">classNames</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">&quot;bar&quot;</span><span class="token punctuation">,</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">baz</span><span class="token operator">:</span> <span class="token keyword">null</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// =&gt; 'bar 1'</span>
+</code></pre></div><h2 id="源码分析"><a href="#源码分析" class="header-anchor">#</a> 源码分析</h2> <p>我们可以在 github 上找到 <a href="https://github.com/JedWatson/classnames/blob/master/index.js" target="_blank" rel="noopener noreferrer">classnames<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 的源码。
+classnames 的代码很少，仅仅只有 51 行。下面，我们来逐行分析代码。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token string">&quot;use strict&quot;</span><span class="token punctuation">;</span>
+
+  <span class="token comment">//...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这是 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F" target="_blank" rel="noopener noreferrer">IIFE (立即调用函数表达式)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，使用 IIFE 可以做到作用域隔离。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> hasOwn <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">.</span>hasOwnProperty<span class="token punctuation">;</span>
+</code></pre></div><p>将 Object 类型原型对象上的 hasOwnProperty 方法存入变量中，方便之后使用 hasOwnProperty 方法时，不用顺着原型链查找该方法，提高性能。</p> <p>接下来，便是 classnames 库的核心代码，classNames 方法，同时也是 classnames 库唯一的 API。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">classNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> classes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> arg <span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">/*
+            如果传入的值有 null、 undefined、 &quot;&quot;、false、NaN 
+            等值直接跳过本次循环，进行下一次循环
+        */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>arg<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">var</span> argType <span class="token operator">=</span> <span class="token keyword">typeof</span> arg<span class="token punctuation">;</span>
+    <span class="token comment">/*
+            classNames 真正处理四类数据，分别为字符串、数值、数组和对象
+        */</span>
+    <span class="token comment">/*
+        如果传入的参数是字符串或数值类型，直接添加到最终的结果里。
+        eg。 classNames('foo', 1) =&gt; &quot;foo 1&quot;
+       */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>argType <span class="token operator">===</span> <span class="token string">&quot;string&quot;</span> <span class="token operator">||</span> argType <span class="token operator">===</span> <span class="token string">&quot;number&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      classes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">/*
+            如果传入的是数组类型，就递归遍历数组
+        */</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>arg<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> inner <span class="token operator">=</span> <span class="token function">classNames</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> arg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>inner<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          classes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>inner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">/*
+            如果传入的参数是对象类型。则分为两种情况:
+            1. 对象没有 toString 属性；
+            classNames({foo: true}) =&gt; &quot;foo&quot;
+            2. 对象有 toString 属性；
+            classNames({&quot;foo&quot;: toString: 'bar'}) =&gt; &quot;bar&quot;
+            */</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>argType <span class="token operator">===</span> <span class="token string">&quot;object&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>arg<span class="token punctuation">.</span>toString <span class="token operator">!==</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        classes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arg<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> key <span class="token keyword">in</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasOwn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            classes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> classes<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&quot; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>梳理一下整个流程。</p> <ol><li>声明一个空数组变量 classes，最后将 classes 里所有元素以空格符分隔组成字符串;</li> <li>使用 for 循环对传入 classNames 方法的参数迭代;</li> <li>若传入的参数经过隐式转换为 false,则将其过滤，结束本次循环，进行下一次循环;</li> <li>参数为字符串或数值类型，则将其参数添加到 classes 数组中;</li> <li>参数为数组类型，则进行递归处理，继续从步骤 1 开始，直至最后将返回值 inner(一维数组)添加到 classes 数组中;</li> <li>参数如果为对象类型，对象的属性值中没有 toString 时，直接根据属性值的 true/false 判断该属性是否成为其类名，如果有 toString,它的值作为其类名。</li></ol> <p>但是目前广泛使用的最新的 classnames v2.2.6 版本中。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// classnames v2.2.6</span>
+<span class="token comment">// ...</span>
+<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>argType <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> key <span class="token keyword">in</span> arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">hasOwn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> arg<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            classes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// ...</span>
+</code></pre></div><p><strong>注意</strong>：对参数为对象类型的情况只做了简单处理，只要对象属性的属性值为 true,即将该属性追加到 classes 数组中。</p> <p>最后，我们来看看 classNames 定义的模块导出部分源码。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> module <span class="token operator">!==</span> <span class="token string">&quot;undefined&quot;</span> <span class="token operator">&amp;&amp;</span> module<span class="token punctuation">.</span>exports<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/*
+        commonJS 规范
+    */</span>
+  classNames<span class="token punctuation">.</span>default <span class="token operator">=</span> classNames<span class="token punctuation">;</span>
+  module<span class="token punctuation">.</span>exports <span class="token operator">=</span> classNames<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>
+  <span class="token comment">/*
+        amd 规范
+    */</span>
+  <span class="token keyword">typeof</span> define <span class="token operator">===</span> <span class="token string">&quot;function&quot;</span> <span class="token operator">&amp;&amp;</span>
+  <span class="token keyword">typeof</span> define<span class="token punctuation">.</span>amd <span class="token operator">===</span> <span class="token string">&quot;object&quot;</span> <span class="token operator">&amp;&amp;</span>
+  define<span class="token punctuation">.</span>amd
+<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">define</span><span class="token punctuation">(</span><span class="token string">&quot;classnames&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> classNames<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">/*
+        直接暴露到全局
+        默认为 browser 环境
+    */</span>
+  window<span class="token punctuation">.</span>classNames <span class="token operator">=</span> classNames<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>classnames 使用了 UMD 模块导出规范。</p> <ol><li>先判断是否存在 module 对象，如果存在，即在 Node.js 环境中，遵循 commonJS 规范导出;</li> <li>如果存在 define 方法，即为浏览器环境中，遵循 AMD 规范导出;</li> <li>如果 module 和 define 都不存在，直接将其暴露到全局环境(默认为浏览器环境)中，挂载到 window 全局对象上。</li></ol> <h2 id="参考链接"><a href="#参考链接" class="header-anchor">#</a> 参考链接</h2> <ul><li><a href="https://zhuanlan.zhihu.com/p/45339681" target="_blank" rel="noopener noreferrer">classnames--react 中动态修改类名<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#介绍" title="介绍">介绍</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#使用方式" title="使用方式">使用方式</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#源码分析" title="源码分析">源码分析</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#参考链接" title="参考链接">参考链接</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/qinghuanI" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>Copyright© 2019-present qinghuanI</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c1ec460.js" defer></script><script src="/assets/js/8.0d09876a.js" defer></script><script src="/assets/js/3.0003beae.js" defer></script><script src="/assets/js/18.36980c19.js" defer></script>
+  </body>
+</html>

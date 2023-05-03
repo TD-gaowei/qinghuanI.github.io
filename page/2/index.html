@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Page 2 | Post | 学习概念而不是语言</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.jpeg">
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.7777dd8e.css" as="style"><link rel="preload" href="/assets/js/app.5c1ec460.js" as="script"><link rel="preload" href="/assets/js/8.0d09876a.js" as="script"><link rel="preload" href="/assets/js/17.75af9246.js" as="script"><link rel="preload" href="/assets/js/4.cfff3174.js" as="script"><link rel="prefetch" href="/assets/js/10.175c548e.js"><link rel="prefetch" href="/assets/js/11.0049b5aa.js"><link rel="prefetch" href="/assets/js/12.ef0e1441.js"><link rel="prefetch" href="/assets/js/13.401ef6f6.js"><link rel="prefetch" href="/assets/js/14.47046aa0.js"><link rel="prefetch" href="/assets/js/15.c57098a3.js"><link rel="prefetch" href="/assets/js/16.49850c50.js"><link rel="prefetch" href="/assets/js/18.36980c19.js"><link rel="prefetch" href="/assets/js/19.0029605e.js"><link rel="prefetch" href="/assets/js/20.a4bda0c0.js"><link rel="prefetch" href="/assets/js/21.93e4574a.js"><link rel="prefetch" href="/assets/js/22.76895c20.js"><link rel="prefetch" href="/assets/js/23.50083854.js"><link rel="prefetch" href="/assets/js/24.c493f762.js"><link rel="prefetch" href="/assets/js/25.53470e49.js"><link rel="prefetch" href="/assets/js/26.82767cce.js"><link rel="prefetch" href="/assets/js/27.ef4882a2.js"><link rel="prefetch" href="/assets/js/28.e8080dce.js"><link rel="prefetch" href="/assets/js/29.1fa03d7a.js"><link rel="prefetch" href="/assets/js/3.0003beae.js"><link rel="prefetch" href="/assets/js/30.5aac3a84.js"><link rel="prefetch" href="/assets/js/31.6988747a.js"><link rel="prefetch" href="/assets/js/32.b47aa45b.js"><link rel="prefetch" href="/assets/js/33.48cb0ec9.js"><link rel="prefetch" href="/assets/js/34.703ccfaf.js"><link rel="prefetch" href="/assets/js/35.b6b8cf56.js"><link rel="prefetch" href="/assets/js/36.92574574.js"><link rel="prefetch" href="/assets/js/37.90961a37.js"><link rel="prefetch" href="/assets/js/38.2d02863a.js"><link rel="prefetch" href="/assets/js/39.019e31c4.js"><link rel="prefetch" href="/assets/js/40.c1b1a7ac.js"><link rel="prefetch" href="/assets/js/5.f3da8cb0.js"><link rel="prefetch" href="/assets/js/6.b80ac16f.js"><link rel="prefetch" href="/assets/js/7.3a44df2f.js"><link rel="prefetch" href="/assets/js/9.8039887e.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.a77183a3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7777dd8e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">学习概念而不是语言 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/" class="nav-link">首页</a></li><li class="nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="nav-item"><a href="/about/" class="nav-link">关于我</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">学习概念而不是语言 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/" class="nav-link">首页</a></li><li class="mobile-nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="mobile-nav-item"><a href="/about/" class="nav-link">关于我</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div><div id="base-list-layout"><div itemscope="itemscope" itemtype="http://schema.org/Blog" class="ui-posts"><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2023/02/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-server-sent-events-%E6%8A%80%E6%9C%AF/"> <header itemprop="name headline" class="ui-post-title"><a href="/2023/02/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-server-sent-events-%E6%8A%80%E6%9C%AF/" class="nav-link">深入浅出 Server-sent events 技术</a></header> <p itemprop="description" class="ui-post-summary">
+        
+
+实时获取服务端的数据，大家第一时间想到的是轮询和 WebSocket 两种方案，其实还有一种新方案 Server-sent events
+下文简称（SSE）。SSE 中的数据只能由服务端推向客户端
+
+SSE 是基于 http 协议的服务器推送技术，数据只能从服务端到客户端。服务端把序列化后的数据发送给客户端，
+整个过程持续不断直至连接关闭
+
+WebSocket vs 轮询 vs SSE
+ ...
+      </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">
+              in wuhan
+          </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2023-02-06T00:00:00.000Z">
+            2023-02-06
+          </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/tag/Web APIs">
+            Web APIs
+          </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2023/02/03/%E4%BD%BF%E7%94%A8-vuepress-%E5%88%B6%E4%BD%9C%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/"> <header itemprop="name headline" class="ui-post-title"><a href="/2023/02/03/%E4%BD%BF%E7%94%A8-vuepress-%E5%88%B6%E4%BD%9C%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86/" class="nav-link">使用 VuePress 制作在线简历</a></header> <p itemprop="description" class="ui-post-summary">
+        
+
+使用在线简历可以让简历更好看，也方便他人浏览，给 HR 和面试官耳目一新的感受
+
+VuePress 是一款基于 Vue 实现的静态网站生成器。有界面简洁优雅，上手简单和扩展 Markdown 语法等优点。
+本篇博客带大家学习如何使用 VuePress 制作自己的在线简历
+
+初始化
+
+首先需要在本地新建在线简历项目
+
+创建并进入一个新目录
+
+mkdir on ...
+      </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">
+              in wuhan
+          </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2023-02-03T00:00:00.000Z">
+            2023-02-03
+          </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/tag/VuePress">
+            VuePress
+          </a><a href="/tag/Vue">
+            Vue
+          </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2021/07/12/%E6%B5%85%E8%B0%88-js-%E9%87%8C%E7%9A%84%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/"> <header itemprop="name headline" class="ui-post-title"><a href="/2021/07/12/%E6%B5%85%E8%B0%88-js-%E9%87%8C%E7%9A%84%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="nav-link">浅谈 JS 里的浅拷贝和深拷贝</a></header> <p itemprop="description" class="ui-post-summary">
+        
+
+在 JavaScript 引擎中，对变量的存储有两种方式，栈内存和堆内存。
+
+JavaScript 中的变量分为基本类型和引用类型。一共有八种，分别是:
+
+Undefined
+Null
+Boolean
+String
+Number
+Symbol
+BigInt (新增)
+Object ( ...
+      </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">
+              in wuhan
+          </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-07-12T00:00:00.000Z">
+            2021-07-12
+          </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/tag/Javascript">
+            Javascript
+          </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/2021/03/09/%E6%9C%89%E9%99%90%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9B%E5%BB%BA%E3%80%81%E6%98%A0%E5%B0%84%E5%8F%8A%E8%BF%87%E6%BB%A4/"> <header itemprop="name headline" class="ui-post-title"><a href="/2021/03/09/%E6%9C%89%E9%99%90%E9%9B%86%E5%90%88%E7%9A%84%E5%88%9B%E5%BB%BA%E3%80%81%E6%98%A0%E5%B0%84%E5%8F%8A%E8%BF%87%E6%BB%A4/" class="nav-link">有限集合的创建、映射及过滤</a></header> <p itemprop="description" class="ui-post-summary">
+        
+
+数学中，一个集合被称为有限集合，简单来说就是元素个数有限 ————《维基百科》
+
+通过上面这句话，我们可以清楚的知道，一个有限集合可以通过穷举法将集合里面的数一一例举出来，这是一条非常重要的原则。在 JavaScript 的世界里，类数组(ArrayLike)、数组(Array)和普通对象(Object)可以看作为有限集合，于是乎，我们可以对它们进行创建、映射及过滤操作。
+
+**本篇博客内容在 ...
+      </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">
+              in wuhan
+          </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-03-09T00:00:00.000Z">
+            2021-03-09
+          </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/tag/Javascript">
+            Javascript
+          </a></div></footer></article><article itemprop="blogPost" itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="ui-post"><meta itemprop="mainEntityOfPage" content="/NaN/NaN/NaN/%E7%9F%AD%E5%B0%8F%E7%B2%BE%E6%82%8D%E7%9A%84%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E5%BA%93-mitt/"> <header itemprop="name headline" class="ui-post-title"><a href="/NaN/NaN/NaN/%E7%9F%AD%E5%B0%8F%E7%B2%BE%E6%82%8D%E7%9A%84%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E5%BA%93-mitt/" class="nav-link">短小精悍的发布订阅库 mitt</a></header> <p itemprop="description" class="ui-post-summary">
+        
+
+mitt 是一个小而美的发布-订阅库，短短的几十行代码，小于 200b 的体积，提供三个重要的 API。然而麻雀虽小，五脏俱全。
+
+发布-订阅模式
+
+发布-订阅模式定义了一种一对多的依赖关系，让多个订阅者对象同时监听某一个主题对象。这个主题对象在自身状态变化时，
+会通知所有订阅者对象，使它们能够自动更新自己的状态。
+
+用法
+
+有这样的一个需求，小明想买 100w 以内的二手房，小华 ...
+      </p> <footer><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="ui-post-meta ui-post-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">
+              in wuhan
+          </span></div> <div class="ui-post-meta ui-post-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2020=09-16">
+            2020-09-16
+          </time></div> <div itemprop="keywords" class="ui-post-meta ui-post-tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg> <a href="/tag/发布订阅模式">
+            发布订阅模式
+          </a><a href="/tag/设计模式">
+            设计模式
+          </a><a href="/tag/mitt">
+            mitt
+          </a></div></footer></article></div> <!----></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/qinghuanI" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>Copyright© 2019-present qinghuanI</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c1ec460.js" defer></script><script src="/assets/js/8.0d09876a.js" defer></script><script src="/assets/js/17.75af9246.js" defer></script><script src="/assets/js/4.cfff3174.js" defer></script>
+  </body>
+</html>

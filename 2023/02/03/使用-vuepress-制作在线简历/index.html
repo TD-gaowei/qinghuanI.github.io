@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 VuePress 制作在线简历 | 学习概念而不是语言</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.jpeg">
+    <meta name="description" content="
+
+使用在线简历可以让简历更好看，也方便他人浏览，给 HR 和面试官耳目一新的感受
+
+VuePress 是一款基于 Vue 实现的静态网站生成器。有界面简洁优雅，上手简单和扩展 Markdown 语法等优点。
+本篇博客带大家学习如何使用 VuePress 制作自己的在线简历
+
+初始化
+
+首先需要在本地新建在线简历项目
+
+创建并进入一个新目录
+
+mkdir on ...">
+    
+    <link rel="preload" href="/assets/css/0.styles.7777dd8e.css" as="style"><link rel="preload" href="/assets/js/app.5c1ec460.js" as="script"><link rel="preload" href="/assets/js/8.0d09876a.js" as="script"><link rel="preload" href="/assets/js/3.0003beae.js" as="script"><link rel="preload" href="/assets/js/28.e8080dce.js" as="script"><link rel="prefetch" href="/assets/js/10.175c548e.js"><link rel="prefetch" href="/assets/js/11.0049b5aa.js"><link rel="prefetch" href="/assets/js/12.ef0e1441.js"><link rel="prefetch" href="/assets/js/13.401ef6f6.js"><link rel="prefetch" href="/assets/js/14.47046aa0.js"><link rel="prefetch" href="/assets/js/15.c57098a3.js"><link rel="prefetch" href="/assets/js/16.49850c50.js"><link rel="prefetch" href="/assets/js/17.75af9246.js"><link rel="prefetch" href="/assets/js/18.36980c19.js"><link rel="prefetch" href="/assets/js/19.0029605e.js"><link rel="prefetch" href="/assets/js/20.a4bda0c0.js"><link rel="prefetch" href="/assets/js/21.93e4574a.js"><link rel="prefetch" href="/assets/js/22.76895c20.js"><link rel="prefetch" href="/assets/js/23.50083854.js"><link rel="prefetch" href="/assets/js/24.c493f762.js"><link rel="prefetch" href="/assets/js/25.53470e49.js"><link rel="prefetch" href="/assets/js/26.82767cce.js"><link rel="prefetch" href="/assets/js/27.ef4882a2.js"><link rel="prefetch" href="/assets/js/29.1fa03d7a.js"><link rel="prefetch" href="/assets/js/30.5aac3a84.js"><link rel="prefetch" href="/assets/js/31.6988747a.js"><link rel="prefetch" href="/assets/js/32.b47aa45b.js"><link rel="prefetch" href="/assets/js/33.48cb0ec9.js"><link rel="prefetch" href="/assets/js/34.703ccfaf.js"><link rel="prefetch" href="/assets/js/35.b6b8cf56.js"><link rel="prefetch" href="/assets/js/36.92574574.js"><link rel="prefetch" href="/assets/js/37.90961a37.js"><link rel="prefetch" href="/assets/js/38.2d02863a.js"><link rel="prefetch" href="/assets/js/39.019e31c4.js"><link rel="prefetch" href="/assets/js/4.cfff3174.js"><link rel="prefetch" href="/assets/js/40.c1b1a7ac.js"><link rel="prefetch" href="/assets/js/5.f3da8cb0.js"><link rel="prefetch" href="/assets/js/6.b80ac16f.js"><link rel="prefetch" href="/assets/js/7.3a44df2f.js"><link rel="prefetch" href="/assets/js/9.8039887e.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.a77183a3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.7777dd8e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">学习概念而不是语言 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/" class="nav-link">首页</a></li><li class="nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="nav-item"><a href="/about/" class="nav-link">关于我</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">学习概念而不是语言 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/" class="nav-link">首页</a></li><li class="mobile-nav-item"><a href="/tag/" class="nav-link">标签</a></li><li class="mobile-nav-item"><a href="/about/" class="nav-link">关于我</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        使用 VuePress 制作在线简历
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">qinghuanI</span> <span itemprop="address">   in wuhan</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2023-02-03T00:00:00.000Z">
+      2023-02-03
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/tag/VuePress" data-v-42ccfcd5><span data-v-42ccfcd5>VuePress</span></a></li><li class="post-tag" data-v-42ccfcd5><a href="/tag/Vue" data-v-42ccfcd5><span data-v-42ccfcd5>Vue</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>使用在线简历可以让简历更好看，也方便他人浏览，给 HR 和面试官耳目一新的感受</p> <p>VuePress 是一款基于 <code>Vue</code> 实现的静态网站生成器。有界面简洁优雅，上手简单和扩展 <code>Markdown</code> 语法等优点。
+本篇博客带大家学习如何使用 VuePress 制作自己的在线简历</p> <h2 id="初始化"><a href="#初始化" class="header-anchor">#</a> 初始化</h2> <p>首先需要在本地新建在线简历项目</p> <ol><li>创建并进入一个新目录</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">mkdir</span> online-resume <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> online-resume
+</code></pre></div><ol start="2"><li>使用您喜欢的包管理器进行初始化</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">yarn</span> init
+<span class="token comment"># npm init or pnpm init</span>
+</code></pre></div><p>根据提示，需要填写项目名称、版本号、项目描述和作者，其他的内容使用默认值</p> <ol start="3"><li>将 VuePress 安装为本地依赖</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> vuepress <span class="token parameter variable">-D</span>
+</code></pre></div><ol start="4"><li>添加一些必要的文件和配置</li></ol> <ul><li>在根目录创建 <code>docs</code> 文件夹，在 <code>docs</code> 中添加 <code>.vuepress/config.js</code>，内容如下</li></ul> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">themeConfig</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 禁用搜索</span>
+    <span class="token literal-property property">search</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// 不需要导航栏</span>
+    <span class="token literal-property property">navbar</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li>在 <code>docs</code> 中添加 <code>.vuepress/README.md</code> 文件</li></ul> <div class="language-markdown extra-class"><pre class="language-markdown"><code><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">home</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">heroText</span><span class="token punctuation">:</span> xxx
+<span class="token key atrule">tagline</span><span class="token punctuation">:</span> xxx开发</span>
+<span class="token punctuation">---</span></span>
+
+请撰写您的工作履历
+::: slot footer
+MIT Licensed | Copyright © 2023-present <span class="token url">[<span class="token content">qinghuanI</span>](<span class="token url">https://github.com/qinghuanI</span>)</span>
+:::
+</code></pre></div><ol start="5"><li>在 <code>package.json</code> 中添加一些 <code>scripts</code></li></ol> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;docs:dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress dev docs&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;docs:build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vuepress build docs&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ol start="6"><li>在本地启动服务器</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">yarn</span> run docs:dev
+</code></pre></div><p>VuePress 会在 <a href="http://localhost:8080" target="_blank" rel="noopener noreferrer">http://localhost:8080<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 启动一个热重载的开发服务器。
+一个简单的简历项目骨架搭建完成，如图所示</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/resume_skeleton.png" alt="Resume Skeleton"></p> <h2 id="内容编排"><a href="#内容编排" class="header-anchor">#</a> 内容编排</h2> <p>在上一个章节，我们搭建了简单的项目骨架，现在需要往 <code>README.md</code> 中添加您的工作履历。
+如何组织内容可以根据自己喜好来，笔者在这里使用我的格式演示</p> <div class="language-markdown extra-class"><pre class="language-markdown"><code><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">home</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">heroText</span><span class="token punctuation">:</span> XXX
+<span class="token key atrule">tagline</span><span class="token punctuation">:</span> Web 前端开发</span>
+<span class="token punctuation">---</span></span>
+
+<span class="token title important"><span class="token punctuation">##</span> 专业技能</span>
+
+<span class="token list punctuation">-</span> 熟悉 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> 熟悉使用 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<span class="token title important"><span class="token punctuation">##</span> 工作经历</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{display: 'flex', justifyContent: 'space-between'}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXX公司1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XX工程师<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXX项目组<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXX/XX-XXXX/XX<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{display: 'flex', justifyContent: 'space-between'}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXX公司2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XX工程师<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXX项目组<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXX/XX-XXXX/XX<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<span class="token title important"><span class="token punctuation">##</span> 项目经历</span>
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">XXXXXXXXXXXXXXXXXXX 项目</span><span class="token punctuation">**</span></span>
+
+项目描述：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+项目职责：
+
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+项目业绩：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<span class="token bold"><span class="token punctuation">**</span><span class="token content">XXXXXXXXXXXXXXXXXXX 项目</span><span class="token punctuation">**</span></span>
+
+项目描述：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+项目职责：
+
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+项目业绩：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<span class="token title important"><span class="token punctuation">##</span> 教育经历</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{display: 'flex', justifyContent: 'space-between'}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXX/XX-XXXX/XX<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XXXXX大学<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>本科<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>XX学历<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token title important"><span class="token punctuation">##</span> 个人成就</span>
+
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+<span class="token title important"><span class="token punctuation">##</span> 自我评价</span>
+
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<span class="token list punctuation">-</span> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+::: slot footer
+MIT Licensed | Copyright © 2023-present <span class="token url">[<span class="token content">qinghuanI</span>](<span class="token url">https://github.com/qinghuanI</span>)</span>
+:::
+</code></pre></div><blockquote><p>VuePress 支持在 Markdown 文件中使用组件，扩展 Markdown 的功能</p></blockquote> <p>简历骨架的显示效果如下</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/online_resume_template.png" alt="Online Resume Template"></p> <p>此时项目的目录结构如下：</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">.</span>
+├── docs
+│   ├── README.md     <span class="token operator">&lt;</span>--- 简历内容
+│   └── .vuepress
+│       └── config.js <span class="token operator">&lt;</span>--- VuePress 配置
+├── package.json
+└── yarn.lock
+</code></pre></div><h2 id="美化"><a href="#美化" class="header-anchor">#</a> 美化</h2> <p>上面的步骤已经实现在线简历，但是我们还可以使用插件优化，提升 HR 或面试官的浏览体验</p> <p>当简历内容比较多，一屏显示不下所有内容时，浏览人员从简历底部回到顶部需要多次滑动鼠标滚轮，体验不佳，可以添加
+<a href="https://vuepress.vuejs.org/zh/plugin/official/plugin-back-to-top.html" target="_blank" rel="noopener noreferrer">回到顶部<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>插件快速回到顶部</p> <ol><li>安装 @vuepress/plugin-back-to-top</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">yarn</span> <span class="token function">add</span> @vuepress/plugin-back-to-top <span class="token parameter variable">-D</span>
+</code></pre></div><ol start="2"><li>在 <code>config.js</code> 中添加 <code>@vuepress/plugin-back-to-top</code></li></ol> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">themeConfig</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 禁用搜索</span>
+    <span class="token literal-property property">search</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token comment">// 不需要导航栏</span>
+    <span class="token literal-property property">navbar</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;@vuepress/back-to-top&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>插件成功运行后，页面右下角会出现向上的箭头，点击箭头，即可快速回到页面顶部</p> <h2 id="部署"><a href="#部署" class="header-anchor">#</a> 部署</h2> <p>VuePress 项目有很多种<a href="https://vuepress.vuejs.org/zh/guide/deploy.html#%E4%BA%91%E5%BC%80%E5%8F%91-cloudbase" target="_blank" rel="noopener noreferrer">部署<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>方式。笔者在这里使用 <code>GitHub Pages</code> 和 <code>GitHub Actions</code> 部署和集成该项目</p> <ol><li>创建 GitHub access token</li></ol> <p>在您的 GitHub 页面，按照 <code>Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens(classic)</code> 进入创建新 <code>tokens</code> 页面。如图所示</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/generate_new_tokens.png" alt="Generate new Tokens"></p> <p>点击 <code>generate new tokens</code> 按钮，选择 <code>Generate new tokens(classic)</code> 选项，
+进入 <code>New personal access token(classic)</code> 页面</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/new_personal_access_token.png" alt="New personal access token"></p> <p>输入 <code>Note</code>，选择永不过期，勾选上所有的 <code>scopes</code>，最后点击 <code>Generate token</code> 按钮创建 <code>token</code>，请存好该 token</p> <ol start="2"><li>创建 secret</li></ol> <p>在您的 GitHub 里，创建 <code>online-resume</code> 仓库，如图所示</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/create_online_resume_repo.png" alt="Create Online Resume Repo"></p> <p>在 <code>online-resume</code> 页面，按照 <code>Settings -&gt; secrets and variables -&gt; Actions</code> 创建仓库的 secret</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/add_secret.png" alt="Add secret"></p> <p>输入 Name 和第一步创建的 personal access token，点击 <code>Add secret</code> 按钮创建 secret，创建后的 secret 如图所示</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/secrets_list.png" alt="Secrets List"></p> <ol start="3"><li>在项目根目录下的 .github/workflows 目录（没有的话，请手动创建一个）下创建一个 .yml 或者 .yaml 文件，如:online-resume-deploy.yml;</li></ol> <div class="language-textmate extra-class"><pre class="language-text"><code>name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: online-resume-deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ONLINE_RESUME }}
+          TARGET_REPO: qinghuanI/online-resume
+          TARGET_BRANCH: gh_pages
+          BUILD_SCRIPT: yarn &amp;&amp; yarn docs:build
+          BUILD_DIR: docs/.vuepress/dist
+</code></pre></div><ol start="4"><li>本地代码同步到远程 <code>online-resume</code> 仓库</li></ol> <p>将项目代码推送至 GitHub 的 <code>online-resume</code> 仓库，<code>GitHub Actions</code> 会帮助持续集成代码，每次有新提交，
+GitHub 都会重新构建</p> <ol start="5"><li>配置 GitHub Pages</li></ol> <p>按照 <code>Settings -&gt; Pages</code> 指示，找到 <code>Branch</code> 配置，选择分支，然后点击 <code>save</code> 按钮保存</p> <p><img src="https://cdn.jsdelivr.net/gh/qinghuanI/blog-images@main/uPic/github_pages_branch.png" alt="GitHub Pages Configuration"></p> <p>等构建成功后，在地址栏输入 <a href="https://qinghuanI.github.io/online-resume/" target="_blank" rel="noopener noreferrer">https://qinghuanI.github.io/online-resume/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 就可以访问</p></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#前言" title="前言">前言</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#初始化" title="初始化">初始化</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#内容编排" title="内容编排">内容编排</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#美化" title="美化">美化</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#部署" title="部署">部署</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/qinghuanI" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>Copyright© 2019-present qinghuanI</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5c1ec460.js" defer></script><script src="/assets/js/8.0d09876a.js" defer></script><script src="/assets/js/3.0003beae.js" defer></script><script src="/assets/js/28.e8080dce.js" defer></script>
+  </body>
+</html>
